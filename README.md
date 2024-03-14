@@ -1,0 +1,1 @@
+# Hand_symbol_to_text
