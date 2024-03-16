@@ -16,7 +16,7 @@ RTC_CONFIGURATION = RTCConfiguration({"iceServers": [{"urls": ["stun:stun.l.goog
 
 cap = cv2.VideoCapture(0)
 detector = HandDetector(maxHands=1)
-classifier = Classifier("C:/Users/SiD/Downloads/MINIPROJECT FINAL1/MINIPROJECT FINAL/keras_model.h5", "C:/Users/SiD/Downloads/MINIPROJECT FINAL1/MINIPROJECT FINAL/labels.txt")
+classifier = Classifier(r"C:\Users\BASHEER\Desktop\HandSymbols-To-Text\keras_model.h5", r"C:\Users\BASHEER\Desktop\HandSymbols-To-Text\labels.txt")
 
 offset = 20
 imgSize = 300
@@ -71,17 +71,18 @@ class HandGestureRecognition(VideoProcessorBase):
         return imgOutput
 
 def main():
+    st.session_state["_initialized"] = True
     # Hand Gesture Recognition Application
     st.title("Real Time Hand Gesture Recognition Application")
     st.header("Webcam Live Feed")
     st.write("Click on start to use webcam and detect your hand gestures")
     
-    webrtc_streamer(key="example", mode=WebRtcMode.SENDRECV, rtc_configuration=RTC_CONFIGURATION,
+    webrtc_streamer(key="hand_gesture_recognition", mode=WebRtcMode.SENDRECV, rtc_configuration=RTC_CONFIGURATION,
                     video_processor_factory=HandGestureRecognition)
 
     st.sidebar.header("About")
     st.sidebar.markdown(
-        "Developed by Sidharth J"
+        "Developed by Abhinav C,Anjali K,Ardra Mariya,Ayaan Sameer,M V Adithya Krishna"
     )
     
     st.sidebar.header("Model Information")
@@ -93,6 +94,7 @@ if __name__ == "__main__":
 
 
 # In[ ]:
+
 
 
 
